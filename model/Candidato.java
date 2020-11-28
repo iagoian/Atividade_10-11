@@ -1,8 +1,19 @@
 package model;
 
 public class Candidato {
-	public String nome;
-	public String cpf;
+	
+	private String nome;
+	private String cpf;
+	private String cargo;
+	
+	
+	public Candidato(String nome, String cpf, String cargo) {
+		super();
+		this.nome = nome;
+		this.cpf = cpf;
+		this.cargo = cargo;
+	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -15,7 +26,11 @@ public class Candidato {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	
+	public String getCargo() {
+		return cargo;
+	}
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
+	}
 	
 }
-	

@@ -36,7 +36,7 @@ private JTextField textField_1;
 			txtpnInscricaoDeCandidato.setBackground(new Color(230, 230, 250));
 			txtpnInscricaoDeCandidato.setFont(new Font("Gotham", Font.BOLD, 15));
 			txtpnInscricaoDeCandidato.setText("INSCRICAO DE CANDIDATO");
-			txtpnInscricaoDeCandidato.setBounds(105, 38, 230, 20);
+			txtpnInscricaoDeCandidato.setBounds(105, 39, 230, 20);
 			getContentPane().add(txtpnInscricaoDeCandidato);
 			
 			JButton btnNewButton = new JButton("ENVIAR");

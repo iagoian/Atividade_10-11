@@ -1,97 +1,133 @@
 package view;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import java.awt.BorderLayout;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
 import java.awt.Font;
-import javax.swing.JTextPane;
-import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+import javax.swing.JButton;
 
-private JPanel contentPane;
-private JTextField txtTtututtu;
-private JButton btnNewButton;
-private JTextField textField;
-private JTextField textField_1;
+public class CandidatoGUI extends JFrame {
+	
+	private JButton btnEnviar;
+	private JButton btnLimpar;
+	private JLabel lblTitle;
+	private JLabel lblNome;
+	private JLabel lblCpf;
+	private JLabel lblCargo;
+	private JTextField textCpf;
+	private JTextField textNome;
+	
+	public CandidatoGUI() {
+		setTitle("CONCURSO - INSCRI\u00C7\\u00C3O");
+		getContentPane().setBackground(new Color(230, 230, 250));
+		setBounds(100, 100, 450, 550);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setLayout(null);
+		
+		Ouvinte ouvinte = new Ouvinte();
+		
+		lblTitle = new JLabel("INSCRICAO DE CANDIDATO");
+		lblTitle.setFont(new Font("Gotham", Font.BOLD, 15));
+		lblTitle.setBounds(105, 32, 230, 31);
+		getContentPane().add(lblTitle);
+		
+		lblNome = new JLabel("NOME");
+		lblNome.setFont(new Font("Gotham", Font.BOLD, 14));
+		lblNome.setBounds(105, 99, 45, 31);
+		getContentPane().add(lblNome);
+		
+		lblCpf = new JLabel("CPF");
+		lblCpf.setFont(new Font("Gotham", Font.BOLD, 14));
+		lblCpf.setBounds(105, 183, 45, 31);
+		getContentPane().add(lblCpf);
+		
+		lblCargo = new JLabel("CARGO");
+		lblCargo.setFont(new Font("Gotham", Font.BOLD, 14));
+		lblCargo.setBounds(105, 294, 54, 31);
+		getContentPane().add(lblCargo);
+		
+		textCpf = new JTextField();
+		textCpf.setBounds(105, 225, 230, 31);
+		getContentPane().add(textCpf);
+		textCpf.setColumns(10);
+		
+		textNome = new JTextField();
+		textNome.setColumns(10);
+		textNome.setBounds(105, 141, 230, 31);
+		getContentPane().add(textNome);
+	
+		
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("Professor Ensino Fundamental");
+		rdbtnNewRadioButton.setBackground(new Color(230, 230, 250));
+		rdbtnNewRadioButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		rdbtnNewRadioButton.setBounds(105, 332, 230, 23);
+		getContentPane().add(rdbtnNewRadioButton);
 
-	public class CandidatoGUI extends JFrame {
-		private JTextField txtInscricaoDeCandidato;
-		private JTextField textField;
-		public CandidatoGUI() {
-			setTitle("CONCURSO - INSCRI\u00C7\u00C3O");
-			getContentPane().setBackground(new Color(230, 230, 250));
-			getContentPane().setLayout(null);
-			
-			txtInscricaoDeCandidato = new JTextField();
-			txtInscricaoDeCandidato.setFont(new Font("Gotham", Font.BOLD, 15));
-			txtInscricaoDeCandidato.setBounds(105, 131, 230, 31);
-			getContentPane().add(txtInscricaoDeCandidato);
-			txtInscricaoDeCandidato.setColumns(10);
-			
-			JTextPane txtpnInscricaoDeCandidato = new JTextPane();
-			txtpnInscricaoDeCandidato.setBackground(new Color(230, 230, 250));
-			txtpnInscricaoDeCandidato.setFont(new Font("Gotham", Font.BOLD, 15));
-			txtpnInscricaoDeCandidato.setText("INSCRICAO DE CANDIDATO");
-			txtpnInscricaoDeCandidato.setBounds(105, 39, 230, 20);
-			getContentPane().add(txtpnInscricaoDeCandidato);
-			
-			JButton btnNewButton = new JButton("ENVIAR");
-			btnNewButton.setFont(new Font("Gotham", Font.BOLD, 14));
-			btnNewButton.setBounds(246, 454, 89, 27);
-			getContentPane().add(btnNewButton);
-			
-			JTextPane txtpnNome = new JTextPane();
-			txtpnNome.setBackground(new Color(230, 230, 250));
-			txtpnNome.setText("NOME");
-			txtpnNome.setFont(new Font("Gotham", Font.BOLD, 15));
-			txtpnNome.setBounds(106, 100, 55, 20);
-			getContentPane().add(txtpnNome);
-			
-			textField = new JTextField();
-			textField.setFont(new Font("Gotham", Font.BOLD, 15));
-			textField.setColumns(10);
-			textField.setBounds(105, 217, 230, 31);
-			getContentPane().add(textField);
-			
-			JTextPane txtpnCpf = new JTextPane();
-			txtpnCpf.setText("CPF");
-			txtpnCpf.setFont(new Font("Gotham", Font.BOLD, 15));
-			txtpnCpf.setBackground(new Color(230, 230, 250));
-			txtpnCpf.setBounds(105, 186, 45, 20);
-			getContentPane().add(txtpnCpf);
-			
-			JTextPane txtpnCargo = new JTextPane();
-			txtpnCargo.setText("CARGO");
-			txtpnCargo.setFont(new Font("Gotham", Font.BOLD, 15));
-			txtpnCargo.setBackground(new Color(230, 230, 250));
-			txtpnCargo.setBounds(105, 276, 66, 20);
-			getContentPane().add(txtpnCargo);
-			
-			JRadioButton rdbtnNewRadioButton = new JRadioButton("Professor Ensino Fundamental");
-			rdbtnNewRadioButton.setBackground(new Color(230, 230, 250));
-			rdbtnNewRadioButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
-			rdbtnNewRadioButton.setBounds(105, 303, 230, 23);
-			getContentPane().add(rdbtnNewRadioButton);
-			
-			JRadioButton rdbtnProfessorEnsinoFundamental = new JRadioButton("Professor Ensino M\u00E9dio");
-			rdbtnProfessorEnsinoFundamental.setBackground(new Color(230, 230, 250));
-			rdbtnProfessorEnsinoFundamental.setFont(new Font("Tahoma", Font.PLAIN, 13));
-			rdbtnProfessorEnsinoFundamental.setBounds(105, 339, 192, 23);
-			getContentPane().add(rdbtnProfessorEnsinoFundamental);
-			
-			JRadioButton rdbtnProfessorEnsinoSuperior = new JRadioButton("Professor Ensino Superior");
-			rdbtnProfessorEnsinoSuperior.setFont(new Font("Tahoma", Font.PLAIN, 13));
-			rdbtnProfessorEnsinoSuperior.setBackground(new Color(230, 230, 250));
-			rdbtnProfessorEnsinoSuperior.setBounds(105, 377, 192, 23);
-			getContentPane().add(rdbtnProfessorEnsinoSuperior);
-			
-			JButton btnLimpar = new JButton("LIMPAR");
-			btnLimpar.setFont(new Font("Gotham", Font.BOLD, 14));
-			btnLimpar.setBounds(105, 454, 89, 27);
-			getContentPane().add(btnLimpar);
+		JRadioButton rdbtnProfessorEnsinoFundamental = new JRadioButton("Professor Ensino M\u00E9dio");
+		rdbtnProfessorEnsinoFundamental.setBackground(new Color(230, 230, 250));
+		rdbtnProfessorEnsinoFundamental.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		rdbtnProfessorEnsinoFundamental.setBounds(105, 358, 192, 23);
+		getContentPane().add(rdbtnProfessorEnsinoFundamental);
+
+		JRadioButton rdbtnProfessorEnsinoSuperior = new JRadioButton("Professor Ensino Superior");
+		rdbtnProfessorEnsinoSuperior.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		rdbtnProfessorEnsinoSuperior.setBackground(new Color(230, 230, 250));
+		rdbtnProfessorEnsinoSuperior.setBounds(105, 384, 192, 23);
+		getContentPane().add(rdbtnProfessorEnsinoSuperior);
+		
+		btnLimpar = new JButton("LIMPAR");
+		btnLimpar.setFont(new Font("Gotham", Font.BOLD, 14));
+		btnLimpar.setBounds(105, 454, 89, 27);
+		btnLimpar.addActionListener(ouvinte);
+		getContentPane().add(btnLimpar);
+		
+		btnEnviar = new JButton("ENVIAR");
+		btnEnviar.setFont(new Font("Gotham", Font.BOLD, 14));
+		btnEnviar.setBounds(246, 454, 89, 27);
+		btnEnviar.addActionListener(ouvinte);
+		getContentPane().add(btnEnviar);
+		
+		setLocationRelativeTo(null);
+		setResizable(false);
+		setVisible(true);
+
+	}
+	
+	public void limpar() {
+		textNome.setText("");
+		textCpf.setText("");
+	}
+	
+	public class Ouvinte implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
+			if(e.getSource()==btnLimpar) {
+				limpar();
+			} else {
+				
+				if(e.getSource()==btnEnviar) {
+					String nome = textNome.getText();
+					String cpf = textCpf.getText();
+					
+					if((nome.equals("")) || (cpf.equals(""))) {
+						JOptionPane.showMessageDialog(getContentPane(), "Todos os campos devem ser preenchidos", "Atenção!", 1, null);
+						
+					} else {
+						JOptionPane.showMessageDialog(getContentPane(), "Usuário cadastrado com sucesso", "Bem-vindo!", 1, null);
+						
+					}
+				}
+			}
 		}
+	}	
 }
